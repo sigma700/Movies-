@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Express JS practice</title>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-black text-white w-full h-full p-[10px]">
+    <div class="main-container w-full">
+      <div class="nav-bar flex justify-between">
+        <span class="text-[30px] text-yellow-400">DEVMOVIES</span>
+        <ul class="flex gap-[20px]">
+          <li
+            class="hover:scale-[1.1] hover:transition-[0.2s] active:scale-[1]"
+          >
+            <a
+              class="transition-[0.2s] hover:text-orange-500 hover:transition-[0.2s]"
+              href="/"
+              >Home</a
+            >
+          </li>
+          <li
+            class="hover:scale-[1.1] hover:transition-[0.2s] active:scale-[1]"
+          >
+            <a
+              class="transition-[0.2s] hover:text-orange-500 hover:transition-[0.2s]"
+              href="/movies"
+              >Movies</a
+            >
+          </li>
+          <li
+            class="hover:scale-[1.1] hover:transition-[0.2s] active:scale-[1]"
+          >
+            <a
+              class="transition-[0.2s] hover:text-orange-500 hover:transition-[0.2s]"
+              href="/series"
+              >Series</a
+            >
+          </li>
+          <li
+            class="hover:scale-[1.1] hover:transition-[0.2s] active:scale-[1]"
+          >
+            <a
+              class="transition-[0.2s] hover:text-orange-500 hover:transition-[0.2s]"
+              href="/genres"
+              >Genre</a
+            >
+          </li>
+        </ul>
+        <label class="relative" for="search">
+          <input
+            class="p-[10px] bg-gray-500 rounded-[10px]"
+            type="text"
+            placeholder="search"
+          /><button
+            class="bg-amber-300 p-[10px] rounded-[10px] right-[0px] absolute"
+          >
+            <i class="bx bx-search"></i>
+          </button>
+        </label>
+      </div>
+
+      <div class="hero-section w-full relative p-[20px] z-0 border-red-400">
+        <img
+          class="w-full h-[600px] object-cover rounded-[10px]"
+          src="/assets/the100.jpg"
+          alt=""
+          srcset=""
+        />
+        <div
+          class="scroller flex justify-between gap-[100px] w-fit z-10 absolute top-1/2 left-1/2 right-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <button
+            class="bg-amber-300 rounded-[50%] p-[8px] transition-[0.2s] hover:text-white hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] hover:bg-black active:scale-[1] active:bg-amber-400"
+          >
+            <i class="text-[50px] bx bx-chevron-left"></i>
+          </button>
+          <button
+            class="bg-gray-700 rounded-[50%] hover:scale-[1.1] hover:bg-amber-500 hover:text-black hover:cursor-pointer active:scale-[1]"
+          >
+            <i class="text-[70px] text-orange-500 bx bx-play"></i>
+          </button>
+          <button
+            class="bg-amber-300 rounded-[50%] p-[8px] transition-[0.2s] hover:text-white hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] hover:bg-black active:scale-[1] active:bg-amber-400"
+          >
+            <i class="text-[50px] bx bx-chevron-right"></i>
+          </button>
+        </div>
+        <span
+          class="absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[80px]"
+          >The 100</span
+        >
+      </div>
+
+      <div class="below-hero-place">
+        <h4 class="text-center mt-[20px] mb-[30px] text-[30px]">Genres</h4>
+        <ul class="flex justify-around font-extrabold">
+          <li
+            class="p-[10px] bg-transparent w-[100px] rounded-[20px] flex align-middle justify-center border-[2px] border-amber-400"
+          >
+            <a href=""></a>Action
+          </li>
+          <li
+            class="p-[10px] bg-transparent w-[100px] rounded-[20px] flex align-middle justify-center border-[2px] border-amber-400"
+          >
+            <a href=""></a>Adventure
+          </li>
+          <li
+            class="p-[10px] bg-transparent w-[100px] rounded-[20px] flex align-middle justify-center border-[2px] border-amber-400"
+          >
+            <a href=""></a>Sci-Fi
+          </li>
+          <li
+            class="p-[10px] bg-transparent w-[100px] rounded-[20px] flex align-middle justify-center border-[2px] border-amber-400"
+          >
+            <a href=""></a>Drama
+          </li>
+          <li
+            class="p-[10px] bg-orange-400 text-black font-extrabold w-[100px] rounded-[20px] flex align-middle justify-center border-[2px] border-black"
+          >
+            <a href="">More</a>
+          </li>
+        </ul>
+      </div>
+      <div class="movies-trends grid grid-cols-2 gap-[20px] p-[20px] w-full">
+        <div class="movies-section h-fit w-full">
+          <div class="movies-nav flex justify-between p-[5px] mb-[30px]">
+            <h4>Movies</h4>
+            <button>See All <i class="bx bx-chevron-right"></i></button>
+          </div>
+          <div class="movies-grid grid grid-cols-4 gap-[50px] h-fit w-full">
+            <div class="image relative text-center h-fit">
+              <img
+                class="rounded-[10px] h-full object-cover transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/Divergent (Divergente) (2014) _ Nueva saga al….jpeg"
+                alt="Divergent"
+                srcset=""
+              />
+              <small
+                class="absolute top-[10px] left-[10px] bg-orange-400 p-[7px] text-black font-extrabold rounded-[10px]"
+                >Action</small
+              >
+              <h6>Divergent</h6>
+              <small>2016</small>
+            </div>
+
+            <div class="image relative text-center">
+              <img
+                class="rounded-[10px] h-full object-cover transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/de6d0ac8-84a4-4bbd-8a8c-fadd890b3a1e.jpeg"
+                alt=""
+                srcset=""
+              />
+              <small
+                class="absolute top-[10px] left-[10px] bg-orange-400 p-[7px] text-black font-extrabold rounded-[10px]"
+                >Sci-fi</small
+              >
+
+              <h6>Avatar</h6>
+              <small>2017</small>
+            </div>
+
+            <div class="image relative text-center">
+              <img
+                class="rounded-[10px] h-full object-cover transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/Halo TV Series Season 2 Poster- Action Sci-Fi….jpeg"
+                alt=""
+                srcset=""
+              />
+              <small
+                class="absolute top-[10px] left-[10px] bg-orange-400 p-[7px] text-black font-extrabold rounded-[10px]"
+                >Action</small
+              >
+              <h6>Halo</h6>
+              <small>2020</small>
+            </div>
+
+            <div class="image relative text-center">
+              <img
+                class="rounded-[10px] h-full object-cover transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/24fb1a78-433b-4c2b-8116-41c65cd00a63.jpeg"
+                alt="Happy"
+                srcset=""
+              />
+              <small
+                class="absolute top-[10px] left-[10px] bg-orange-400 p-[7px] text-black font-extrabold rounded-[10px]"
+                >Adventure</small
+              >
+
+              <h6>Uncharted</h6>
+              <small>2023</small>
+            </div>
+
+            <div class="image relative text-center">
+              <img
+                class="rounded-[10px] h-full object-cover transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/e6db4a15-7ce9-431a-9142-6f36d92a7752.jpeg"
+                alt=""
+                srcset=""
+              />
+              <small
+                class="absolute top-[10px] left-[10px] bg-orange-400 p-[7px] text-black font-extrabold rounded-[10px]"
+                >Action</small
+              >
+
+              <h6>In Time</h6>
+              <small>2016</small>
+            </div>
+
+            <div class="image relative text-center">
+              <img
+                class="rounded-[10px] h-full object-cover transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/Carry On.jpeg"
+                alt=""
+                srcset=""
+              />
+              <small
+                class="absolute top-[10px] left-[10px] bg-orange-400 p-[7px] text-black font-extrabold rounded-[10px]"
+                >Action</small
+              >
+
+              <h6>Carry On</h6>
+              <small>2024</small>
+            </div>
+
+            <div class="image relative text-center">
+              <img
+                class="rounded-[10px] h-full object-cover transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/download.jpeg"
+                alt=""
+                srcset=""
+              />
+              <small
+                class="absolute top-[10px] left-[10px] bg-orange-400 p-[7px] text-black font-extrabold rounded-[10px]"
+                >Adventure</small
+              >
+
+              <h6>Marvel Runaways</h6>
+              <small>2020</small>
+            </div>
+
+            <div class="image relative text-center h-full">
+              <img
+                class="rounded-[10px] h-full object-cover transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/Scorpion CBS.jpeg"
+                alt="scorpion"
+                srcset=""
+              />
+
+              <small
+                class="absolute top-[10px] left-[10px] bg-orange-400 p-[7px] text-black font-extrabold rounded-[10px]"
+                >Thriller</small
+              >
+              <h6>Scorpion</h6>
+              <small>2016</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="trends-section p-[20px] flex flex-col gap-[20px] w-[500px]">
+          <h5 class="mb-[30px] font-extrabold text-[30px]">Trending Now</h5>
+          <div
+            class="whole-container flex gap-[40px] bg-gray-700 rounded-[10px]"
+          >
+            <div class="img-container">
+              <img
+                class="w-[100px] rounded-[10px] transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/terminator.jpeg"
+                alt="terminator"
+                srcset=""
+              />
+            </div>
+            <div class="content-area flex flex-col justify-evenly">
+              <div class="movie-content">
+                <p>Terminator</p>
+                <small>2016</small>
+              </div>
+              <div class="content-btns flex gap-[20px]">
+                <span class="bg-amber-400 p-[5px] rounded-[10px] text-black"
+                  >Action</span
+                >
+                <small
+                  ><i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                </small>
+              </div>
+            </div>
+          </div>
+          <div
+            class="whole-container flex gap-[40px] bg-gray-700 rounded-[10px]"
+          >
+            <div class="img-container">
+              <img
+                class="w-[100px] rounded-[10px] transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/0e477ff7-1412-4fe8-bd1a-ecdee81a1906.jpeg"
+                alt="black-panther"
+                srcset=""
+              />
+            </div>
+            <div class="content-area flex flex-col justify-evenly">
+              <div class="movie-content">
+                <p>Black panther</p>
+                <small>2016</small>
+              </div>
+              <div class="content-btns flex gap-[20px]">
+                <span class="bg-amber-400 p-[5px] rounded-[10px] text-black"
+                  >Action</span
+                >
+                <small
+                  ><i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                  <i class="bx bx-star"></i>
+                  <i class="bx bx-star"></i>
+                </small>
+              </div>
+            </div>
+          </div>
+          <div
+            class="whole-container flex gap-[40px] bg-gray-700 rounded-[10px]"
+          >
+            <div class="img-container">
+              <img
+                class="w-[100px] rounded-[10px] transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/2bb19ded-9b6a-46c3-beca-7455c542ce0b.jpeg"
+                alt="Ant-man movie"
+                srcset=""
+              />
+            </div>
+            <div class="content-area flex flex-col justify-evenly">
+              <div class="movie-content">
+                <p>Ant Man</p>
+                <small>2017</small>
+              </div>
+              <div class="content-btns flex gap-[20px]">
+                <span class="bg-amber-400 p-[5px] rounded-[10px] text-black"
+                  >BlockBuster</span
+                >
+                <small
+                  ><i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                  <i class="bx bx-star"></i>
+                </small>
+              </div>
+            </div>
+          </div>
+          <div
+            class="whole-container flex gap-[40px] bg-gray-700 rounded-[10px]"
+          >
+            <div class="img-container">
+              <img
+                class="w-[100px] rounded-[10px] transition-[0.2s] hover:scale-[1.09] hover:cursor-pointer hover:transition-[0.2s] active:scale-[1]"
+                src="/assets/moana.jpeg"
+                alt="moana-movie"
+                srcset=""
+              />
+            </div>
+            <div class="content-area flex flex-col justify-evenly">
+              <div class="movie-content">
+                <p>Moana</p>
+                <small>2016</small>
+              </div>
+
+              <div class="content-btns flex gap-[20px]">
+                <span class="bg-amber-400 p-[5px] rounded-[10px] text-black"
+                  >Fun and Adventure</span
+                >
+                <small
+                  ><i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

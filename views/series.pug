@@ -1,0 +1,18 @@
+html 
+    head
+        title = title 
+        link(rel="stylesheet", href="./output.css")
+    body(class="max-w-7xl mx-auto bg-black text-white p-[20px]")
+      div(class="")  
+        h1(class="text-red-500 font-bold text-center text-[40px]") Series 
+        div 
+               div(class="mt-8 grid md:grid-cols-3 gap-4 p-[20px]")
+                    each series in data 
+                     div(class="transition-[0.2s] hover:scale-[1.09] hover:transition-[0.2s] hover:cursor-pointer active:scale-[1]")
+                      a(href=`/series/${series.id}`) 
+                         img(class="rounded-[10px] w-[300px] " src=`https://image.tmdb.org/t/p/w500${series.poster_path}`, alt="", srcset="")
+                         h2(class="text-[20px]")= series.name
+                         p(class="text-orange-400")=series.vote_average 
+
+                         
+                    
